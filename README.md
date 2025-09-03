@@ -1,11 +1,13 @@
 # avt415
 Website for AVT 415 Work
 
-E1
+## E1
+
 https://www.figma.com/design/d5MPAaZd1uGyjMbXHDkCAQ/E1?node-id=0-1&t=qElHSkIFYYjM1KQs-1]
 
 
-P1.1
+## P1.1
+
 Idea #1: This website explores the story and emotional depth of Yoshitomo Nara, a Japanese contemporary artist known for his deceptively cute but emotionally complex characters. It highlights his personal history, artistic evolution, and the meaning behind his work, all styled with raw textures and rebellious flair.
 
 Idea #2: This site is a clean, minimal journey through the life and work of Dick Bruna, Dutch illustrator and creator of Miffy (Nijntje). The aesthetic reflects his visual principles: simplicity, clarity, and childlike joy.
