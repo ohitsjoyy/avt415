@@ -1,82 +1,76 @@
-/* Background */
 body {
-    margin: 0;
+    background: #b3d9ff; /* baby blue */
     height: 100vh;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #d9b3ff; /* light purple background */
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
+    font-family: sans-serif;
 }
 
-/* Scene container */
-.scene {
-    position: relative;
-    width: 300px;
-    height: 400px;
+/* Pumpkin wrapper for animation */
+.pumpkin-container {
+    animation: bounce 2s infinite ease-in-out;
 }
 
-/* Ghost */
-.ghost {
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
+/* Pumpkin Body */
+.pumpkin {
+    width: 200px;
     height: 160px;
-    background: white;
-    border-radius: 60px 60px 20px 20px;
-    animation: float 3s ease-in-out infinite;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: #ff8c00;
+    border-radius: 50% / 60%;
+    position: relative;
+    box-shadow: inset -10px 0 0 #e67600, inset 10px 0 0 #e67600;
 }
 
-/* Ghost eyes */
-.eyes {
+/* Pumpkin Stem */
+.stem {
+    width: 30px;
+    height: 50px;
+    background: #4f3d16;
     position: absolute;
-    top: 40px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.eye {
-    width: 15px;
-    height: 15px;
-    background: black;
-    border-radius: 50%;
-    animation: blink 4s infinite;
-}
-
-.mouth {
-    position: absolute;
-    bottom: 30px;
+    top: -35px;
     left: 50%;
     transform: translateX(-50%);
-    width: 30px;
-    height: 10px;
-    border-radius: 10px / 5px;
+    border-radius: 10px;
+}
+
+/* Eyes */
+.eye {
+    width: 35px;
+    height: 35px;
     background: black;
-}
-
-/* Ghost floating animation */
-@keyframes float {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-20px); }
-}
-
-/* Eye blinking animation */
-@keyframes blink {
-    0%, 90%, 100% { transform: scaleY(1); }
-    95% { transform: scaleY(0.1); }
-}
-
-/* Ground (optional, for effect) */
-.ground {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background: #b386ff;
-    border-radius: 50% 50% 0 0;
+    top: 45px;
+}
+
+.eye.left {
+    left: 40px;
+}
+
+.eye.right {
+    right: 40px;
+}
+
+/* Mouth */
+.mouth {
+    width: 90px;
+    height: 60px;
+    background: black;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 50% 50%;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
