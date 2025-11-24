@@ -1,83 +1,80 @@
 body {
     background: #0d0d0d;
-    height: 100vh;
     margin: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: sans-serif;
+    overflow: hidden;
 }
 
-/* Pumpkin Container */
-.pumpkin {
+/* Bat Container */
+.bat {
     position: relative;
-    width: 250px;
-    height: 200px;
-    background: #ff7b00;
-    border-radius: 50% / 60%;
-    box-shadow: inset 0 0 30px #b95400, 0 0 20px #ff9c33;
+    width: 150px;
+    height: 80px;
     animation: float 3s ease-in-out infinite;
 }
 
-/* Pumpkin Sections for extra roundness */
-.pumpkin::before,
-.pumpkin::after {
-    content: "";
+/* Bat Body */
+.body {
     position: absolute;
-    top: 0;
-    width: 80px;
-    height: 200px;
-    background: #ff8c1a;
+    width: 60px;
+    height: 60px;
+    background: #222;
     border-radius: 50%;
-    box-shadow: inset 0 0 15px #b95400;
-}
-.pumpkin::before { left: 20px; }
-.pumpkin::after { right: 20px; }
-
-/* Stem */
-.stem {
-    position: absolute;
-    top: -40px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 50px;
-    background: #3c7421;
-    border-radius: 20px 20px 5px 5px;
-    box-shadow: inset 0 0 10px #234813;
+    box-shadow: 0 0 20px #555;
 }
 
-/* Eyes */
+/* Bat Wings */
+.wing {
+    position: absolute;
+    width: 90px;
+    height: 60px;
+    background: #222;
+    top: 10px;
+    border-radius: 50% 50% 0 0;
+    transform-origin: top center;
+    animation: flap 1s ease-in-out infinite;
+}
+
+.wing.left {
+    left: -70px;
+    transform: rotate(30deg);
+}
+
+.wing.right {
+    right: -70px;
+    transform: rotate(-30deg);
+}
+
+/* Bat Eyes */
 .eye {
     position: absolute;
-    top: 60px;
-    width: 35px;
-    height: 35px;
-    background: #000;
-    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-    box-shadow: 0 0 15px yellow;
-}
-.eye.left { left: 55px; }
-.eye.right { right: 55px; }
-
-/* Mouth */
-.mouth {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 130px;
-    height: 50px;
-    background: #000;
-    clip-path: polygon(
-        0% 100%, 10% 60%, 20% 80%, 30% 40%, 
-        40% 70%, 50% 30%, 60% 70%, 70% 40%, 
-        80% 80%, 90% 60%, 100% 100%
-    );
-    box-shadow: 0 0 20px yellow;
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    border-radius: 50%;
+    top: 25px;
 }
 
-/* Floating animation */
+.left-eye {
+    left: 60px;
+}
+
+.right-eye {
+    right: 60px;
+}
+
+/* Flap Animation */
+@keyframes flap {
+    0%, 100% { transform: rotate(30deg); }
+    50% { transform: rotate(60deg); }
+}
+
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
