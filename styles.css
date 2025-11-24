@@ -1,94 +1,75 @@
-/* Basic setup */
 body {
-    margin: 0;
-    height: 100vh;
+    background: #0b0b0b;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to top, #1b1b2f, #3c1053);
-    overflow: hidden;
-    font-family: sans-serif;
+    height: 100vh;
+    margin: 0;
 }
 
-/* Scene container */
-.scene {
+/* Pumpkin body */
+.pumpkin {
     position: relative;
     width: 200px;
-    height: 300px;
+    height: 180px;
+    background: orange;
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: inset -10px -10px 0 rgba(0,0,0,0.2);
 }
 
-/* Ghost body */
-.ghost {
-    position: relative;
-    width: 100px;
-    height: 120px;
-    background: white;
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    animation: float 3s ease-in-out infinite alternate;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Ghost eyes */
-.eyes {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-    margin-top: 20px;
-}
-
-.eye {
-    width: 15px;
-    height: 15px;
-    background: black;
-    border-radius: 50%;
-}
-
-.eye.left { }
-.eye.right { }
-
-/* Ghost mouth */
-.mouth {
-    width: 20px;
-    height: 10px;
-    border-bottom: 3px solid black;
-    border-radius: 50%;
-    margin-top: 10px;
-}
-
-/* Ghost tail wavy */
-.tail {
+/* Pumpkin stem */
+.stem {
     position: absolute;
-    bottom: 0;
-    width: 100%;
+    top: -30px;
+    left: 85px;
+    width: 30px;
+    height: 40px;
+    background: brown;
+    border-radius: 5px;
+    transform: rotate(-10deg);
+}
+
+/* Eyes */
+.eye {
+    position: absolute;
+    top: 50px;
+    width: 30px;
     height: 30px;
-    display: flex;
-    justify-content: space-between;
+    background: black;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
-.tail::before,
-.tail::after {
-    content: '';
-    width: 20px;
+.eye.left {
+    left: 40px;
+}
+
+.eye.right {
+    right: 40px;
+}
+
+/* Nose */
+.nose {
+    position: absolute;
+    top: 90px;
+    left: 85px;
+    width: 30px;
     height: 20px;
-    background: white;
-    border-radius: 50%;
-    animation: wave 1.5s ease-in-out infinite alternate;
+    background: black;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
-.tail::after {
-    animation-delay: 0.5s;
-}
-
-/* Floating animation for ghost */
-@keyframes float {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-20px); }
-}
-
-/* Tail wave animation */
-@keyframes wave {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
+/* Mouth */
+.mouth {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 140px;
+    height: 50px;
+    background: black;
+    border-radius: 0 0 50% 50%;
+    clip-path: polygon(
+        0% 50%, 10% 70%, 20% 50%, 30% 70%, 40% 50%, 50% 70%, 
+        60% 50%, 70% 70%, 80% 50%, 90% 70%, 100% 50%, 
+        100% 100%, 0% 100%
+    );
 }
