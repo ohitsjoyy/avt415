@@ -1,75 +1,68 @@
+/* Baby blue background */
 body {
-    background: #0b0b0b;
+    margin: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    background: #b3e0ff; /* baby blue */
+    overflow: hidden;
 }
 
-/* Pumpkin body */
-.pumpkin {
+/* Ghost body */
+.ghost {
     position: relative;
-    width: 200px;
-    height: 180px;
-    background: orange;
-    border-radius: 50% 50% 45% 45%;
-    box-shadow: inset -10px -10px 0 rgba(0,0,0,0.2);
+    width: 120px;
+    height: 150px;
+    background: white;
+    border-radius: 60px 60px 10px 10px;
+    animation: float 3s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Pumpkin stem */
-.stem {
-    position: absolute;
-    top: -30px;
-    left: 85px;
-    width: 30px;
-    height: 40px;
-    background: brown;
-    border-radius: 5px;
-    transform: rotate(-10deg);
+/* Ghost eyes */
+.eyes {
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+    margin-top: 40px;
 }
 
-/* Eyes */
 .eye {
-    position: absolute;
-    top: 50px;
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     background: black;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border-radius: 50%;
 }
 
 .eye.left {
-    left: 40px;
+    transform: translateX(-5px);
 }
 
 .eye.right {
-    right: 40px;
+    transform: translateX(5px);
 }
 
-/* Nose */
-.nose {
+/* Ghost bottom waves */
+.bottom {
     position: absolute;
-    top: 90px;
-    left: 85px;
-    width: 30px;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom div {
+    width: 25%;
     height: 20px;
-    background: black;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: white;
+    border-radius: 50%;
 }
 
-/* Mouth */
-.mouth {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    width: 140px;
-    height: 50px;
-    background: black;
-    border-radius: 0 0 50% 50%;
-    clip-path: polygon(
-        0% 50%, 10% 70%, 20% 50%, 30% 70%, 40% 50%, 50% 70%, 
-        60% 50%, 70% 70%, 80% 50%, 90% 70%, 100% 50%, 
-        100% 100%, 0% 100%
-    );
+/* Floating animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
