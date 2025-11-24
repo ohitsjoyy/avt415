@@ -13,92 +13,82 @@ body {
 /* Scene container */
 .scene {
     position: relative;
-    width: 300px;
+    width: 200px;
     height: 300px;
 }
 
-/* Pumpkin */
-.pumpkin {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 100px;
-    background: orange;
-    border-radius: 50% 50% 45% 45%;
+/* Ghost body */
+.ghost {
+    position: relative;
+    width: 100px;
+    height: 120px;
+    background: white;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     animation: float 3s ease-in-out infinite alternate;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-/* Pumpkin face */
-.face .eye {
+/* Ghost eyes */
+.eyes {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 20px;
+}
+
+.eye {
     width: 15px;
     height: 15px;
     background: black;
     border-radius: 50%;
-    position: absolute;
 }
 
-.face .eye.left {
-    left: 35px;
-    top: 30px;
-}
+.eye.left { }
+.eye.right { }
 
-.face .eye.right {
-    right: 35px;
-    top: 30px;
-}
-
-.face .mouth {
-    position: absolute;
-    bottom: 20px;
-    width: 50px;
-    height: 20px;
-    border-bottom: 4px solid black;
+/* Ghost mouth */
+.mouth {
+    width: 20px;
+    height: 10px;
+    border-bottom: 3px solid black;
     border-radius: 50%;
+    margin-top: 10px;
 }
 
-/* Floating animation for pumpkin */
-@keyframes float {
-    0% { transform: translateX(-50%) translateY(0); }
-    100% { transform: translateX(-50%) translateY(-20px); }
-}
-
-/* Bats */
-.bat {
+/* Ghost tail wavy */
+.tail {
     position: absolute;
-    width: 40px;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tail::before,
+.tail::after {
+    content: '';
+    width: 20px;
     height: 20px;
-    background: black;
-    border-radius: 50% 50% 50% 50% / 50% 50% 0 0;
-    transform-origin: center;
-    animation: fly 6s linear infinite;
+    background: white;
+    border-radius: 50%;
+    animation: wave 1.5s ease-in-out infinite alternate;
 }
 
-.bat1 {
-    top: 30px;
-    left: 0;
-    animation-delay: 0s;
+.tail::after {
+    animation-delay: 0.5s;
 }
 
-.bat2 {
-    top: 80px;
-    left: -60px;
-    animation-delay: 2s;
+/* Floating animation for ghost */
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
 }
 
-.bat3 {
-    top: 120px;
-    left: -100px;
-    animation-delay: 4s;
-}
-
-/* Bat flying animation */
-@keyframes fly {
-    0% { transform: translateX(0) translateY(0) rotate(0deg); }
-    50% { transform: translateX(300px) translateY(-50px) rotate(15deg); }
-    100% { transform: translateX(600px) translateY(0) rotate(-10deg); }
+/* Tail wave animation */
+@keyframes wave {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
 }
