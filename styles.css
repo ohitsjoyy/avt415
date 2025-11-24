@@ -1,47 +1,65 @@
 body {
-  background-color: #ff4814;
+    background: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-.container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -64.5px;
-  margin-top: -85.5px;
+/* Ghost Animation */
+@keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
 }
 
 .ghost {
-  animation: float 3s ease-out infinite;
+    width: 160px;
+    height: 200px;
+    background: white;
+    border-radius: 90px 90px 60px 60px;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
 }
 
-@keyframes float {
-  50% {
-     transform: translate(0, 20px);
-  }
-}
-.shadowFrame {
-  width: 130px;
-  margin-top: 15px;
-}
-.shadow {
-  animation: shrink 3s ease-out infinite;
-  transform-origin: center center;
-  ellipse {
-    transform-origin: center center;
-  }
+/* Ghost face */
+.face {
+    text-align: center;
+    padding-top: 50px;
 }
 
-@keyframes shrink {
-  0% {
-    width: 90%;
-    margin: 0 5%;
-  }
-  50% {
-    width: 60%;
-    margin: 0 18%;
-  }
-  100% {
-    width: 90%;
-    margin: 0 5%;
-  }
+.eye {
+    width: 22px;
+    height: 30px;
+    background: black;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.mouth {
+    width: 35px;
+    height: 20px;
+    background: black;
+    border-radius: 0 0 20px 20px;
+    margin: 15px auto 0;
+}
+
+/* Wavy Ghost Bottom */
+.bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom span {
+    width: 25%;
+    height: 100%;
+    background: white;
+    border-radius: 0 0 30px 30px;
 }
